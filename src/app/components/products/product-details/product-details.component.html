@@ -1,0 +1,16 @@
+
+<div *ngIf="targetProduct" calss="container">
+    <div class="col-md-4">
+      <img src="{{targetProduct?.imageUrl}}" />
+    </div>
+    <div class="col-md-8">
+      <h2>{{targetProduct?.productName}}</h2>
+      <h3>{{targetProduct?.price}} BGN</h3>
+      <p>Color:  <span>{{targetProduct?.color}}</span></p>
+      <p>Size:  <span>{{targetProduct?.size}}</span></p>
+      <p>Other information:  <span>{{targetProduct?.moreInfo}}</span></p>
+      <p>Categories:  <span>{{targetProduct?.categories}}</span></p>
+    </div>
+</div>
+
+<h1 *ngIf="!targetProduct">Loading...</h1>

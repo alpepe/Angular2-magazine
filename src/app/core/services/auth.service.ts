@@ -6,11 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import { RegisterModel } from '../models/register.model';
 import { LoginModel } from '../models/login.model';
 
-const appKey = 'kid_ry5EZMnZM' // APP KEY HERE;
-const appSecret = 'd941a85566f848d98c24e2bb72178edf' // APP SECRET HERE;
+const appKey = 'kid_HyfK-Babf'; // APP KEY HERE;
+const appSecret = 'd8535aa4159f4ca6b753a07d1558ecbe'; // APP SECRET HERE;
 const registerUrl = `https://baas.kinvey.com/user/${appKey}`;
 const loginUrl = `https://baas.kinvey.com/user/${appKey}/login`;
-const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
+const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`;
 
 @Injectable()
 export class AuthenticationService {

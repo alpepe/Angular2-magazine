@@ -41,6 +41,7 @@ export class LoginFormComponent {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
+    localStorage.setItem('role', data['role']);
     this.loginFail = false;
     this.router.navigate(['/home']);
   }

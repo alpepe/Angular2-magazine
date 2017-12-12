@@ -11,22 +11,22 @@ import {
 import { AuthenticationService } from '../services/auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanLoad {
+export class AdminGuard implements CanActivate, CanLoad {
   constructor(
     private authService: AuthenticationService,
     private router: Router
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.checkLoggedIn(state.url);
+    return this.checkAdmin(state.url);
   }
 
   canLoad(route: Route): boolean {
-    return this.checkLoggedIn(route.path);
+    return this.checkAdmin(route.path);
   }
 
-  checkLoggedIn(url: string): boolean {
-    if (this.authService.isLoggedIn()) {
+  checkAdmin(url: string): boolean {
+    if (this.authService.isAdminRole()) {
       return true;
     }
 

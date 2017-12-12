@@ -1,20 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-<div class="alert alert-danger" >testtt</div>
-  <nav>
-    <div *ngIf="!authService.isLoggedIn()">
-        <a routerLink="/login">Login</a>
-        <a routerLink="/register">Register</a>
-    </div>
-    <div *ngIf="authService.isLoggedIn()">
-      <a routerLink="/home">Home</a>
-      <a routerLink="/logout">Logout</a>
-    </div>
-  </nav>
-
-  <div id="content">
-    <router-outlet></router-outlet>
-  </div>
-
-  <footer></footer>
+<app-header></app-header>
+<div id="content">
+  <router-outlet></router-outlet>
 </div>
+
+<footer></footer>

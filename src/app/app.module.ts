@@ -11,8 +11,12 @@ import { HomeComponent } from './components/home/home.component';
 
 // Services
 import { AuthGuard } from './core/guards/auth.guard.service';
+import { AdminGuard } from './core/guards/admin.guard.service';
 import { ServiceModule } from './core/services/services.module';
 import { AuthModule } from './components/auth/auth.module';
+import { SharedModule } from './components/shared/shraed.module';
+import { ProductsModule } from './components/products/products.module';
+
 
 
 @NgModule({
@@ -26,10 +30,14 @@ import { AuthModule } from './components/auth/auth.module';
     ReactiveFormsModule,
     AppRoutesModule,
     ServiceModule,
-    AuthModule
+    AuthModule,
+    SharedModule,
+    ProductsModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AdminGuard
+
   ],
   bootstrap: [AppComponent]
 })

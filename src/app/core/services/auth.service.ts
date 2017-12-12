@@ -53,7 +53,18 @@ export class AuthenticationService {
     isLoggedIn() {
         let authtoken: string = localStorage.getItem('authtoken');
 
-        return authtoken === this.currentAuthtoken;
+        //return authtoken === this.currentAuthtoken;
+        if (localStorage.getItem('authtoken')) {
+            return true;
+        }
+        return false;
+    }
+
+    isAdminRole() {
+        if (localStorage.getItem('role') === 'admin') {
+            return true;
+        }
+        return false;
     }
 
     get authtoken() {

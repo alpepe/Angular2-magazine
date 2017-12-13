@@ -1,14 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f7f7f7;">
   <div *ngIf="!authService.isLoggedIn()">
-    <img [src]="fullImagePath" class="navbar-brand">
+    <img routerLink="/home" [src]="logoImagePath" class="navbar-brand">
     <a routerLink="/home" class="navbar-brand">Home</a>
     <a routerLink="/login" class="navbar-brand">Login</a>
     <a routerLink="/register" class="navbar-brand">Register</a>
   </div>
   <div *ngIf="authService.isLoggedIn()">
+    <img routerLink="/home" [src]="logoImagePath" class="navbar-brand">
     <a routerLink="/home" class="navbar-brand">Home</a>
     <a *ngIf="authService.isAdminRole()" routerLink="/createProduct" class="navbar-brand">Add new product</a>
     <a routerLink="/logout" class="navbar-brand">Logout</a>
+    <a routerLink="/yourCart" class="cart" ><img  [src]="cartImagePath"   style="width: 60px" ></a>
+    
   </div>
   
+
 </nav>

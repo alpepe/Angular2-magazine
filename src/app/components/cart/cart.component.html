@@ -1,0 +1,38 @@
+<div *ngIf="products" class="wrapper">
+  <div class="container">
+    <div class="col-md-5">
+      <h1>Shoping Cart</h1>
+    </div>
+    <div class="col-md-2">
+      <h3>Total sum: {{totalSum}}</h3>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div *ngIf="products">
+    <div *ngFor="let product of products" class="product-info container">
+      <div class="col-md-2">
+        <img src="{{product?.imageUrl}}">
+      </div>
+      <div class="col-md-2">
+        <h4>{{product?.productName}}</h4>
+      </div>
+      <div class="col-md-2">
+        <p>Color:
+          <span>{{product?.color}}</span>
+        </p>
+        <p>Size:
+          <span>{{product?.size}}</span>
+        </p>
+        <p>Categories:
+          <span>{{product?.categories}}</span>
+        </p>
+      </div>
+      <div class="col-md-5">
+        <h3>{{product?.price}} BGN</h3>
+
+      </div>
+      <button (click)="deleteProductFromCart(product._id)" class="btn btn-danger">X</button>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { ServiceModule } from './core/services/services.module';
 import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shraed.module';
 import { ProductsModule } from './components/products/products.module';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -23,6 +24,7 @@ import { ProductsModule } from './components/products/products.module';
   declarations: [
     AppComponent,
     HomeComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

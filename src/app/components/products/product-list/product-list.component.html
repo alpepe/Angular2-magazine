@@ -1,5 +1,6 @@
 <div class="container">
   <h1 *ngIf="!products">Loading...</h1>
+
   <app-product (click)="viewDetails(product)" class="col" *ngFor="let product of products" [product]="product">
   </app-product>
 </div>

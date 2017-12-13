@@ -11,6 +11,8 @@ import { ProductService } from '../../../core/services/product.service';
 export class ProductListComponent implements OnInit {
 
   public products: string[];
+  public currentPage: Number;
+
   constructor(
     private productService: ProductService,
     private router: Router
@@ -19,8 +21,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
-
     });
+    this.currentPage = 1;
   }
 
   viewDetails(product) {

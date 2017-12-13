@@ -8,10 +8,12 @@ import { AuthenticationService } from '../../../core/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  fullImagePath: string;
+  logoImagePath: string;
+  cartImagePath: string;
 
   constructor(private authService: AuthenticationService) {
-    this.fullImagePath = "../../../../../assets/images/LOGO1.png";
+    this.logoImagePath = "../../../../../assets/images/LOGO1.png";
+    this.cartImagePath = "../../../../../assets/images/glossy-black-icon-business.png";
   }
 
   ngOnInit() {

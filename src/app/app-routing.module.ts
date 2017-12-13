@@ -8,10 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LogoutComponent } from './components/auth/logout-component/logout.component';
 import { CreateProductComponent } from './components/products/create-product/create-product.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { CartComponent } from './components/cart/cart.component';
 
 // Guards
 import { AuthGuard } from './core/guards/auth.guard.service';
 import { AdminGuard } from './core/guards/admin.guard.service';
+
 
 
 
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'createProduct', canActivate: [AdminGuard], component: CreateProductComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'details/:id', canActivate: [AuthGuard], component: ProductDetailsComponent }
+  { path: 'details/:id', canActivate: [AuthGuard], component: ProductDetailsComponent },
+  { path: 'yourCart', canActivate: [AuthGuard], component: CartComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

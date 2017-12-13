@@ -1,0 +1,20 @@
+img{
+    width: 120px;
+}
+.product-info{
+    border-bottom: 1px solid rgb(0, 56, 129);
+    border-bottom-right-radius: 60px;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 80%;
+    box-shadow: 1px 1px 5px 1px;
+}
+button{
+   font-size: 10px;
+}
+.wrapper{
+    padding: 20px;
+}
+h1{
+    margin: 15px;
+}

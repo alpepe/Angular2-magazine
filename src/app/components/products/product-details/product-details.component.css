@@ -2,3 +2,11 @@ img{
     width: 450px;
 
 }
+
+.infoContainer{
+    padding-left: 40px !important;
+}
+
+.imgContainer{
+    padding-left: 20px !important;
+}

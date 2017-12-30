@@ -9,8 +9,12 @@ img{
     width: 80%;
     box-shadow: 1px 1px 5px 1px;
 }
-button{
+.x{
    font-size: 10px;
+}
+.order{
+    margin-top: 10px ; 
+    font-size: 20px ;
 }
 .wrapper{
     padding: 20px;

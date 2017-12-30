@@ -9,6 +9,8 @@
     <img routerLink="/home" [src]="logoImagePath" class="navbar-brand">
     <a routerLink="/home" class="navbar-brand">Home</a>
     <a *ngIf="authService.isAdminRole()" routerLink="/createProduct" class="navbar-brand">Add new product</a>
+    <a *ngIf="authService.isAdminRole()" routerLink="/orders" class="navbar-brand">Orders</a>
+    <a routerLink="/myOrders" class="navbar-brand">My Orders</a>
     <a routerLink="/logout" class="navbar-brand">Logout</a>
     <a routerLink="/yourCart" class="cart" ><img  [src]="cartImagePath"   style="width: 60px" ></a>
     

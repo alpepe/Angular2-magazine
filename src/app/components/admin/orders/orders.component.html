@@ -1,0 +1,41 @@
+<div *ngIf="orders">
+  <div *ngFor="let order of orders" class="order container">
+    <div>
+      User:
+      <b>{{order.username}}</b>
+    </div>
+    <div>
+      Total Order Price:
+      <b>{{order.finalPrice}}</b>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product name</th>
+          <th>Color</th>
+          <th>Size</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of order.products">
+          <td>
+            <img src="{{product?.imageUrl}}">
+          </td>
+          <td>
+            {{product.productName}}
+          </td>
+          <td>
+            {{product.color}}
+          </td>
+          <td>
+            {{product.size}}
+          </td>
+          <td>
+            {{product.price}}
+          </td>
+      </tbody>
+    </table>
+  </div>
+</div>

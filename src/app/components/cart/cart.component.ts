@@ -14,6 +14,7 @@ export class CartComponent {
   private elForDelete: Object;
   private indexOfElForDel: number;
   private totalSum: number;
+  public orderObject: Object;
 
   constructor(private cartService: CartService) {
     this.products = cartService.getProductOfCart();
@@ -36,6 +37,19 @@ export class CartComponent {
       }
       console.log(this.totalSum);
     }
+  }
+
+  order(products) {
+    this.orderObject = {
+      username: localStorage.getItem('username'),
+      products: products,
+      finalPrice: this.totalSum
+    };
+    this.cartService.orderPost(this.orderObject).subscribe(data => {
+      (console.log(data));
+      this.products = [];
+      this.cartService.clearCart();
+    });
   }
 
 

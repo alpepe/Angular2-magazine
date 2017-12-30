@@ -16,7 +16,7 @@ export class RegisterFormComponent {
   constructor(
     private authService: AuthenticationService
   ) {
-    this.model = new RegisterModel("", "", "", "", "user");
+    this.model = new RegisterModel("", "", "", "", "user", []);
   }
 
   register(): void {

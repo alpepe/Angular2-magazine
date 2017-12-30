@@ -20,9 +20,16 @@ export class CreateProductComponent implements OnInit {
   public imageUrlMessage: string;
   public priceMessage: string;
 
+  public selectedCategory: string;
+
   constructor(private formBuilder: FormBuilder, private productService: ProductService, private router: Router) {
     this.categories = ['clothes', 'accessories', 'shoes'];
     this.urlPatern = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  }
+
+  categoryOnChange(value) {
+    this.selectedCategory = value;
+    console.log(this.selectedCategory);
   }
 
   ngOnInit() {

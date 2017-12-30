@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { CartComponent } from './components/cart/cart.component';
 
 // Services
 import { AuthGuard } from './core/guards/auth.guard.service';
@@ -16,15 +17,18 @@ import { ServiceModule } from './core/services/services.module';
 import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shraed.module';
 import { ProductsModule } from './components/products/products.module';
-import { CartComponent } from './components/cart/cart.component';
+import { AdminModule } from './components/admin/admin.module';
 
+
+
+// import alert service and component
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { CartComponent } from './components/cart/cart.component';
     ServiceModule,
     AuthModule,
     SharedModule,
-    ProductsModule
+    ProductsModule,
+    AdminModule
   ],
   providers: [
     AuthGuard,

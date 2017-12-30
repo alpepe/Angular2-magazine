@@ -4,11 +4,13 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { UserOrdersComponent } from "./user-orders/user-orders.component";
 
 
 // Modules
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -19,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         ProductComponent,
         ProductListComponent,
         ProductDetailsComponent,
+        UserOrdersComponent
     ],
     imports: [
         CommonModule,
@@ -27,7 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     exports: [
         CreateProductComponent,
         ProductComponent,
-        ProductListComponent
+        ProductListComponent,
+        ProductDetailsComponent,
+        UserOrdersComponent
     ]
 })
 

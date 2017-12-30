@@ -6,8 +6,13 @@
     <div class="infoContainer col-md-8">
       <h2>{{targetProduct?.productName}}</h2>
       <h3>{{targetProduct?.price}} BGN</h3>
-      <p>Color:  <span>{{targetProduct?.color}}</span></p>
+      <p>Color:  <span>{{targetProduct?.color}}</span></p> 
       <p>Size:  <span>{{targetProduct?.size}}</span></p>
+        <form [formGroup]="sizeForm">  
+            <label for="size">Write your size</label>        
+          <input type="text" id="size" formControlName="size" />   
+        </form>
+        <br> 
       <p>Other information:  <span>{{targetProduct?.moreInfo}}</span></p>
       <p>Categories:  <span>{{targetProduct?.categories}}</span></p>
       <button (click)="addToCart()" class="btn btn-primary">Add to CART</button>

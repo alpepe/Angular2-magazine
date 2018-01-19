@@ -1,11 +1,12 @@
-export type ProductType = 'clothes' | 'accessories' | 'shoes' ;
+export class ItemModel {
+  constructor(
+    productName: string,
+    imageUrl: string,
+    price: number,
+    color: string,
+    size: string,
+    categories: string,
+    moreInfo: string
+  ) { }
+}
 
-export interface Item {
-    id?: number;
-    name?: string;
-    price?: number;
-    currency?: string;
-    typing?: ProductType[];
-    picture?: string;
-  }
-  

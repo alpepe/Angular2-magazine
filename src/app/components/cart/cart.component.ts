@@ -33,7 +33,7 @@ export class CartComponent {
     this.totalSum = 0;
     if (this.products.length > 0) {
       for (let pr of this.products) {
-        this.totalSum = this.totalSum + pr.price;
+        this.totalSum = this.totalSum + pr.product.price;
       }
       console.log(this.totalSum);
     }

@@ -5,17 +5,24 @@
     </div>
     <div class="infoContainer col-md-8">
       <h2>{{targetProduct?.productName}}</h2>
-      <h3>{{targetProduct?.price}} BGN</h3>
+      <h3><b>{{targetProduct?.price}} BGN</b></h3>
       <p>Color:  <span>{{targetProduct?.color}}</span></p> 
-      <p>Size:  <span>{{targetProduct?.size}}</span></p>
-        <form [formGroup]="sizeForm">  
-            <label for="size">Write your size</label>        
-          <input type="text" id="size" formControlName="size" />   
+
+        <form (ngSubmit)="addToCart()" #chooseSizeForm="ngForm">         
+          <select required [(ngModel)]="model.size" name="size" #size="ngModel">
+          <option *ngFor="let size of targetProduct.size" value="{{size}}">EU {{size}}</option>  
+          </select> 
+          <input type="text" required [(ngModel)]="model.kaka" name="kaka" #kaka="ngModel"/>
+          <div [hidden]="size.valid || size.pristine" class="alert alert-danger">
+              size required!
+            </div> 
+          <br> 
+          <p>Other information:  <span>{{targetProduct?.moreInfo}}</span></p>
+          <p>Categories:  <span>{{targetProduct?.categories}}</span></p>
+          <button type="submit" class="btn btn-primary">Add to CART</button> 
         </form>
-        <br> 
-      <p>Other information:  <span>{{targetProduct?.moreInfo}}</span></p>
-      <p>Categories:  <span>{{targetProduct?.categories}}</span></p>
-      <button (click)="addToCart()" class="btn btn-primary">Add to CART</button>
+        
+        
     </div>
 </div>
 

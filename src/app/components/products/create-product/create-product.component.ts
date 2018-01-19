@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ProductService } from '../../../core/services/product.service';
 import { Router } from '@angular/router';
+import { ItemModel } from '../../../core/models/product.model';
 
 
 
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 export class CreateProductComponent implements OnInit {
 
   public productForm: FormGroup;
+  public model: ItemModel;
   public categories: string[];
   public urlPatern;
 
@@ -25,25 +27,27 @@ export class CreateProductComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private productService: ProductService, private router: Router) {
     this.categories = ['clothes', 'accessories', 'shoes'];
     this.urlPatern = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    this.model = new ItemModel('', '', 0, '', '', '', '');
   }
 
-  categoryOnChange(value) {
-    this.selectedCategory = value;
-    console.log(this.selectedCategory);
-  }
+  // categoryOnChange(value) {
+  //   this.selectedCategory = value;
+  //   console.log(this.selectedCategory);
+  // }
 
   ngOnInit() {
-    this.productForm = this.formBuilder.group({
+    this.model = {
       //productName: {value: 'Nike Air max', disabled: true},
       productName: ['Nike Air max', [Validators.minLength(10), Validators.required]],
       imageUrl: ['https://cdn.thesolesupplier.co.uk/2017/09/Nike-Air-Max-90-Ultra-Essential-Gym-Red.png',
         [Validators.pattern(this.urlPatern)]],
       price: [200, [Validators.required]],
       color: 'red',
-      size: '44',
+      size: '40 42 43 44 45 46',
       categories: this.categories[0],
       moreInfo: 'Product #: 18356600Noble Red/Port Wine/Summit White | Width - D - Medium'
-    });
+    }
+    this.productForm = this.formBuilder.group(this.model);
 
     const productNameControl = this.productForm.get('productName');
     const imageUrlControl = this.productForm.get('imageUrl');
@@ -80,6 +84,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   save(): void {
+    this.productForm.value.size = this.productForm.value.size.split(" ");
     this.productService.createProduct(this.productForm.value).subscribe(data => {
       console.log(data);
       this.productForm = this.formBuilder.group({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthenticationService } from './auth.service';
-
+import { ItemModel } from '../../core/models/product.model';
 const appKey = 'kid_HyfK-Babf'; // APP KEY HERE;
 const appSecret = 'd8535aa4159f4ca6b753a07d1558ecbe'; // APP SECRET HERE;
 const createProductUrl = `https://baas.kinvey.com/appdata/${appKey}/products/`;

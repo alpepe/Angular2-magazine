@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ProductService } from '../../../core/services/product.service';
 import { CartService } from '../../../core/services/cart.service';
-import { ItemModel } from '../../../core/models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -12,41 +12,48 @@ import { ItemModel } from '../../../core/models/product.model';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  public model: ItemModel;
+  public model;
+  public currentProductId: string;
   public targetProduct: string;
+  private currectOrder: boolean;
+  public arr: Array<Object>;
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService,
+    private router: Router
   ) {
-    this.model = new ItemModel('', '', 0, '', '', '', '');
-    const id: string = this.route.snapshot.params["id"];
+    this.arr = []
+    this.currectOrder = true;
+    this.currentProductId = this.route.snapshot.params["id"];
     this.productService.getById().subscribe(data => {
-      this.targetProduct = data.find(o => o._id === id);
-      if (this.targetProduct) {
-        this.model = {
-          product: this.targetProduct,
-          // imageUrl: "this.targetProduct.imageUrl",
-          // price: "this.targetProduct.price",
-          // color: "this.targetProduct.color",
-          // categories: "this.targetProduct.categories",
-          // moreInfo: "this.targetProduct.moreInfo"
-        };
-      }
+      this.targetProduct = data.find(o => o._id === this.currentProductId);
+      this.model = {
+        product: this.targetProduct,
+        size: "Select size of product"
+        // imageUrl: "this.targetProduct.imageUrl",
+        // price: "this.targetProduct.price",
+        // color: "this.targetProduct.color",
+        // categories: "this.targetProduct.categories",
+        // moreInfo: "this.targetProduct.moreInfo"
+      };
     });
   }
 
   ngOnInit() {
-
-
-
-
   }
 
   addToCart() {
+    if (this.model.size !== "Select size of product") {
+      this.currectOrder = true;
+      this.cartService.takeProductToCart(this.model);
+      this.arr.push(this.model);
+      console.log(this.arr);
+    } else {
+      this.currectOrder = false;
+    }
 
-    this.cartService.takeProductToCart(this.model);
-    console.log(this.model);
   }
 
 

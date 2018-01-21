@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CartComponent {
 
-  private products: any[];
+  private products: Object[];
   private test: any[];
   private elForDelete: Object;
   private indexOfElForDel: number;
@@ -31,7 +31,7 @@ export class CartComponent {
 
   calculateTotalSum(): void {
     this.totalSum = 0;
-    if (this.products.length > 0) {
+    if (this.products) {
       for (let pr of this.products) {
         this.totalSum = this.totalSum + pr.product.price;
       }

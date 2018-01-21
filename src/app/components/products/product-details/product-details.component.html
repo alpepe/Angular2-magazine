@@ -7,15 +7,12 @@
       <h2>{{targetProduct?.productName}}</h2>
       <h3><b>{{targetProduct?.price}} BGN</b></h3>
       <p>Color:  <span>{{targetProduct?.color}}</span></p> 
-
         <form (ngSubmit)="addToCart()" #chooseSizeForm="ngForm">         
           <select required [(ngModel)]="model.size" name="size" #size="ngModel">
+            <option disabled>Select size of product</option>
           <option *ngFor="let size of targetProduct.size" value="{{size}}">EU {{size}}</option>  
           </select> 
-          <input type="text" required [(ngModel)]="model.kaka" name="kaka" #kaka="ngModel"/>
-          <div [hidden]="size.valid || size.pristine" class="alert alert-danger">
-              size required!
-            </div> 
+          <div class="alert alert-danger" *ngIf="!currectOrder">Select size of product</div>
           <br> 
           <p>Other information:  <span>{{targetProduct?.moreInfo}}</span></p>
           <p>Categories:  <span>{{targetProduct?.categories}}</span></p>

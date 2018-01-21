@@ -1,5 +1,24 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
+
+
+## Online store functionality
+
+* Public Part
+   * User registration.
+   * User login.
+   * View the list of products and their basic information.
+
+* Private Part 
+   * View the list of products and their basic information.
+   * To see detailed information about each product.
+   * You can set the size of the product and add it to the shopping cart.
+   * By visiting your cart you can see the products you've added, delete a product of cart or order it.
+
+* Administration Part
+  * Can add products with name, photo, color, size, category, more info and auto-generated ID.
+  * Can see a list of all orders.
+  
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

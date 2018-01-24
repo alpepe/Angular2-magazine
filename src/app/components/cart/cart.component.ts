@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CartComponent {
 
-  private products: Object[];
+  private products: any[];
   private test: any[];
   private elForDelete: Object;
   private indexOfElForDel: number;
@@ -23,9 +23,10 @@ export class CartComponent {
   }
 
   deleteProductFromCart(id): void {
-    this.elForDelete = this.products.find(el => el._id === id);
+    this.elForDelete = this.products.find(el => el.product._id === id);
     this.indexOfElForDel = this.products.indexOf(this.elForDelete);
     this.products.splice(this.indexOfElForDel, 1);
+    localStorage.setItem('products', JSON.stringify(this.products));
     this.calculateTotalSum();
   }
 

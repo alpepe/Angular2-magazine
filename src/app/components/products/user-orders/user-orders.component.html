@@ -1,6 +1,9 @@
 
 
 <div *ngIf="myOrders">
+    <div *ngIf="myOrders.length===0">
+        <h1>You still no have order </h1>
+      </div>
     <div *ngFor="let order of myOrders" class="order container">
       <div>
         Total Order Price:
@@ -19,19 +22,19 @@
         <tbody>
           <tr *ngFor="let product of order.products">
             <td>
-              <img src="{{product?.imageUrl}}">
+              <img src="{{product?.product.imageUrl}}">
             </td>
             <td>
-              {{product.productName}}
+              {{product.product.productName}}
             </td>
             <td>
-              {{product.color}}
+              {{product.product.color}}
             </td>
             <td>
               {{product.size}}
             </td>
             <td>
-              {{product.price}}
+              {{product.product.price}}
             </td>
         </tbody>
       </table>

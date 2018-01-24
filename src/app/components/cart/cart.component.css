@@ -11,6 +11,8 @@ img{
 }
 .x{
    font-size: 10px;
+   outline:none !important;
+   border: none
 }
 .order{
     margin-top: 10px ; 

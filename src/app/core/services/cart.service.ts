@@ -13,7 +13,7 @@ const orderPostGetUrl = `https://baas.kinvey.com/appdata/${appKey}/orders/`;
 @Injectable()
 export class CartService {
 
-    Products: Object[];
+    public Products: Object[];
 
     constructor(
         private http: HttpClient,
@@ -33,7 +33,6 @@ export class CartService {
     }
 
     takeProductToCart(product) {
-
         localStorage.setItem(`products`, JSON.stringify(product));
         this.Products.push(JSON.parse(localStorage.getItem('products')));
         localStorage.setItem(`products`, JSON.stringify(this.Products));
@@ -42,6 +41,8 @@ export class CartService {
     getProductOfCart() {
         return JSON.parse(localStorage.getItem('products'));
     }
+
+
     clearCart() {
         this.Products = [];
     }

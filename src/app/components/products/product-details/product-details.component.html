@@ -1,5 +1,10 @@
 
-<div *ngIf="targetProduct" calss="container">
+<div *ngIf="targetProduct"  [ngClass]="{containerFilter:delConfirmInvisible}">
+  <div [ngClass]="{confirmDelBackground:!delConfirmInvisible, delConfirmInvisible:delConfirmInvisible}">
+        <h1 >Are you sure to delete this product?</h1>
+        <button (click)="ConfirmDeleteProduct()" class="btn btn-danger">YES</button>
+        <button (click)="notConfirmDelete()" class="btn btn-warning">NO</button>
+  </div>
     <div class="imgContainer col-md-4">
       <img src="{{targetProduct?.imageUrl}}" />
     </div>
@@ -18,7 +23,7 @@
           <p>Categories:  <span>{{targetProduct?.categories}}</span></p>
           <button type="submit" class="btn btn-primary">Add to CART</button> 
         </form>
-        
+        <button (click)="deleteProduct()" *ngIf="authServise.isAdminRole()" class="btn btn-danger">Delete this product</button>
         
     </div>
 </div>

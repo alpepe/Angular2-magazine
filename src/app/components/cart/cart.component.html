@@ -1,45 +1,52 @@
 <div *ngIf="!products">
-  <h1>Shoping Cart is Empty...</h1>
-</div>
-
-<div *ngIf="products" class="wrapper">
-  <div class="container">
-    <div class="col-md-5">
-      <h1>Shoping Cart</h1>
-    </div>
-    <div class="col-md-2">
-      <h3>Total sum: {{totalSum}}</h3>
-    </div>
-    <div class="col-md-2">
-      <button (click)="order(products)" class="order btn btn-success" >Make Order</button>
-    </div>
+    <h1>Shoping Cart is Empty...</h1>
   </div>
-  <br>
-  <br>
-  <div *ngIf="products">
-    <div *ngFor="let product of products" class="product-info container">
-      <div class="col-md-2">
-        <img src="{{product?.product.imageUrl}}">
-      </div>
-      <div class="col-md-2">
-        <h4>{{product?.product.productName}}</h4>
-      </div>
-      <div class="col-md-2">
-        <p>Color:
-          <span>{{product?.product.color}}</span>
-        </p>
-        <p>Size:
-          <span>{{product?.size}}</span>
-        </p>
-        <p>Categories:
-          <span>{{product?.product.categories}}</span>
-        </p>
-      </div>
+  
+  <div *ngIf="products" class="wrapper">
+    <div class="container">
       <div class="col-md-5">
-        <h3>{{product?.product.price}} BGN</h3>
-
+        <h1>Shoping Cart</h1>
       </div>
-      <button (click)="deleteProductFromCart(product.product._id)" class="x btn btn-danger">X</button>
+      <div class="col-md-2">
+        <h3>Total sum: {{totalSum}}</h3>
+      </div>
+      <div class="col-md-2">
+        <button (click)="order(products)" class="order btn btn-success">Make Order</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div *ngIf="products">
+      <div *ngFor="let product of products; let i = index" [ngClass]="{'confirmDelBackground': selectedItemId === i}" class="container product-info">
+        <div [ngClass]="{'delConfirmInvisible': selectedItemId !== i}">
+          <h1>Are you sure to delete this product?</h1>
+          <button (click)="confirmDelProduct(product?.product._id, product.size); selectedItemId=-1" class="btn btn-danger">YES</button>
+          <button (click)="selectedItemId=-1" class="btn btn-warning">NO</button>
+        </div>
+        <div [ngClass]="{'delConfirmInvisible': selectedItemId === i}">
+          <div class="col-md-2">
+            <img src="{{product?.product.imageUrl}}">
+          </div>
+          <div class="col-md-2">
+            <h4>{{product?.product.productName}}</h4>
+          </div>
+          <div class="col-md-2">
+            <p>Color:
+              <span>{{product?.product.color}}</span>
+            </p>
+            <p>Size:
+              <span>{{product?.size}}</span>
+            </p>
+            <p>Categories:
+              <span>{{product?.product.categories}}</span>
+            </p>
+          </div>
+          <div class="col-md-5">
+            <h3>{{product?.product.price}} BGN</h3>
+  
+          </div>
+          <button (click)="deleteProductFromCart(); selectedItemId = i" class="x btn btn-danger">X</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>

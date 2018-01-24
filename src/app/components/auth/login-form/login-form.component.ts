@@ -39,6 +39,8 @@ export class LoginFormComponent {
 
   successfulLogin(data): void {
     this.authService.authtoken = data['_kmd']['authtoken'];
+    this.authService.role = data['role'];
+    console.log(this.authService.role)
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
     localStorage.setItem('role', data['role']);

@@ -15,6 +15,7 @@ export class CartComponent {
   private indexOfElForDel: number;
   private totalSum: number;
   public orderObject: Object;
+  private delConfirmInvisible = true;
 
   constructor(private cartService: CartService) {
     this.products = cartService.getProductOfCart();
@@ -22,11 +23,15 @@ export class CartComponent {
 
   }
 
-  deleteProductFromCart(id): void {
-    this.elForDelete = this.products.find(el => el.product._id === id);
+  deleteProductFromCart(): void {
+    this.delConfirmInvisible = false;
+  }
+  confirmDelProduct(id, size): void {
+    this.elForDelete = this.products.find(el => el.product._id === id && el.size === size);
     this.indexOfElForDel = this.products.indexOf(this.elForDelete);
     this.products.splice(this.indexOfElForDel, 1);
     localStorage.setItem('products', JSON.stringify(this.products));
+    this.cartService.Products = this.products;
     this.calculateTotalSum();
   }
 

@@ -8,6 +8,7 @@ const appSecret = 'd8535aa4159f4ca6b753a07d1558ecbe'; // APP SECRET HERE;
 const createProductUrl = `https://baas.kinvey.com/appdata/${appKey}/products/`;
 const getAllProductsUrl = `https://baas.kinvey.com/appdata/${appKey}/products/`;
 
+
 @Injectable()
 export class ProductService {
 
@@ -45,6 +46,17 @@ export class ProductService {
     getById(): Observable<any> {
         return this.http.get(
             getAllProductsUrl,
+            {
+                headers: {
+                    'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`
+                }
+            }
+        );
+    }
+
+    deleteProduct(id): Observable<any> {
+        return this.http.delete(
+            getAllProductsUrl + id,
             {
                 headers: {
                     'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`

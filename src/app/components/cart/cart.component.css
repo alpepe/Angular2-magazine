@@ -24,3 +24,27 @@ img{
 h1{
     margin: 15px;
 }
+
+
+
+/* Confirm delete alert style */
+.delConfirmInvisible{
+    display: none !important;
+}
+
+.confirmDelBackground{
+    border-bottom: 1px solid rgb(0, 56, 129);
+    border-bottom-right-radius: 60px;
+    padding: 10px;
+    box-shadow: 1px 1px 5px 1px;
+    background: rgba(80, 0, 0, 0.96);
+    text-align: center;
+    vertical-align: middle !important;
+    color: white;
+}
+
+.confirmDelBackground>button{
+    padding: 1% 4% 1% 4%;
+}
+.confirmDelBackground>h1{
+}

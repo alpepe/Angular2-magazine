@@ -13,10 +13,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    * View the list of products and their basic information.
    * To see detailed information about each product.
    * You can set the size of the product and add it to the shopping cart.
-   * By visiting your cart you can see the products you've added, delete a product of cart or order it.
+   * By visiting your cart you can see the products you've added, 
+     delete a product of cart (whit Confirmation Dialog Box) 
+     or order it.
 
 * Administration Part
   * Can add products with name, photo, color, size, category, more info and auto-generated ID.
+  * Can delete a product (whit Confirmation Dialog Box)
   * Can see a list of all orders.
   
 ## Development server

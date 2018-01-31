@@ -29,8 +29,8 @@ export class ProductDetailsComponent implements OnInit {
   ) {
     this.currectOrder = true;
     this.currentProductId = this.route.snapshot.params["id"];
-    this.productService.getById().subscribe(data => {
-      this.targetProduct = data.find(o => o._id === this.currentProductId);
+    this.productService.getById(this.currentProductId).subscribe(data => {
+      this.targetProduct = data;
       this.model = {
         product: this.targetProduct,
         size: "Select size of product"

@@ -1,0 +1,17 @@
+@media screen and (min-width: 200px) {
+    h1{
+        position: relative;
+        float: right !important;
+        right: 50px;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    h1{
+        position: relative;
+        float: right !important;
+        right: 120px;
+        top: -90px;
+        z-index: 100000000;
+    }
+}

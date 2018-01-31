@@ -5,19 +5,19 @@
 
     <div class="form-group" [ngClass]="{'has-error': productNameMessage}">
       <label for="productName">Product name</label>
-      <input type="text" class="form-control" id="productName" required formControlName="productName" />
+      <input type="text" class="form-control" id="productName" required formControlName="productName" placeholder="max length 22 symbols"/>
       <div *ngIf="productNameMessage" class="alert alert-danger">{{productNameMessage}}</div>
     </div>
 
     <div class="form-group" [ngClass]="{'has-error': imageUrlMessage}">
       <label for="imageUrl">Image URL</label>
-      <input type="text" class="form-control" id="imageUrl" required formControlName="imageUrl" />
+      <input type="text" class="form-control" id="imageUrl" required formControlName="imageUrl" placeholder="URL of your image"/>
       <div *ngIf="imageUrlMessage" class="alert alert-danger">{{imageUrlMessage}}</div>
     </div>
 
     <div class="form-group" [ngClass]="{'has-error': priceMessage}">
       <label for="price">Price</label>
-      <input type="number" class="form-control" id="price" required formControlName="price" />
+      <input type="number" class="form-control" id="price" required formControlName="price"/>
       <div *ngIf="priceMessage" class="alert alert-danger">{{priceMessage}}</div>
     </div>
 
@@ -28,7 +28,7 @@
 
     <div class="form-group">
       <label for="size">Size</label>
-      <input type="text" class="form-control" id="size" required formControlName="size" />
+      <input type="text" class="form-control" id="size" formControlName="size" placeholder="separated by space like(X XL XXL)"/>
     </div>
 
     <div class="form-group">

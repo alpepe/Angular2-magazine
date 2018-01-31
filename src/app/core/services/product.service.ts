@@ -6,7 +6,8 @@ import { ItemModel } from '../../core/models/product.model';
 const appKey = 'kid_HyfK-Babf'; // APP KEY HERE;
 const appSecret = 'd8535aa4159f4ca6b753a07d1558ecbe'; // APP SECRET HERE;
 const createProductUrl = `https://baas.kinvey.com/appdata/${appKey}/products/`;
-const getAllProductsUrl = `https://baas.kinvey.com/appdata/${appKey}/products/`;
+const getAllProductsUrl = `https://baas.kinvey.com/appdata/${appKey}/products/?query=`;
+const getProductById = `https://baas.kinvey.com/appdata/${appKey}/products/`;
 
 
 @Injectable()
@@ -32,9 +33,9 @@ export class ProductService {
         }
     }
 
-    getAllProducts(): Observable<any> {
+    getAllProducts(query): Observable<any> {
         return this.http.get(
-            getAllProductsUrl,
+            getAllProductsUrl + query,
             {
                 headers: {
                     'Authorization': `Kinvey 9145f332-3edb-4f3a-972c-2ce2c2195b5e.kUB+ewGz/eGw0VsszSRKESTn7P3Ity7sE0ygHfLLgpM=`
@@ -43,9 +44,9 @@ export class ProductService {
         );
     }
 
-    getById(): Observable<any> {
+    getById(id): Observable<any> {
         return this.http.get(
-            getAllProductsUrl,
+            getProductById + id,
             {
                 headers: {
                     'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`

@@ -21,6 +21,9 @@ form{
     display: inline;
 }
 
+
+
+/* Confirm delete alert style */
 .delConfirmInvisible{
     display: none !important;
 }

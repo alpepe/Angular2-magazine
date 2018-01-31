@@ -1,10 +1,12 @@
-import { Component }  from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: './home.components.html'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent { 
-  public username : string;
+export class HomeComponent {
+  public username: string;
 
   constructor() {
     this.username = localStorage.getItem('username');

@@ -38,15 +38,15 @@ export class CreateProductComponent implements OnInit {
   ngOnInit() {
     this.model = {
       //productName: {value: 'Nike Air max', disabled: true},
-      productName: ['Nike Air max', [Validators.minLength(10), Validators.required]],
-      imageUrl: ['https://cdn.thesolesupplier.co.uk/2017/09/Nike-Air-Max-90-Ultra-Essential-Gym-Red.png',
-        [Validators.pattern(this.urlPatern)]],
-      price: [200, [Validators.required]],
+      productName: ['', [Validators.maxLength(22), Validators.required]],
+      imageUrl: ['', [Validators.pattern(this.urlPatern)]],
+      price: [[Validators.required]],
       color: 'red',
-      size: '40 42 43 44 45 46',
+      size: '',
       categories: this.categories[0],
       moreInfo: 'Product #: 18356600Noble Red/Port Wine/Summit White | Width - D - Medium'
-    }
+    };
+
     this.productForm = this.formBuilder.group(this.model);
 
     const productNameControl = this.productForm.get('productName');

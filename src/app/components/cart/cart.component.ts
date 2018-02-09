@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CartComponent {
 
-  private products: any[];
+  public products: any[];
   private test: any[];
   private elForDelete: Object;
   private indexOfElForDel: number;

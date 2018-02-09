@@ -13,11 +13,11 @@ export class ProductListComponent implements OnInit {
   public products: string[];
   public currentPage: Number;
 
-  private foundProduct: boolean;
-  private filterObj: Object;
-  private category: string;
-  private color: string;
-  private test = true;
+  public foundProduct: boolean;
+  public filterObj: Object;
+  public category: string;
+  public color: string;
+  public test = true;
 
 
   constructor(

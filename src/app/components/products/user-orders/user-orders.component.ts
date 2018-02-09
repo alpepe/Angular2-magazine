@@ -7,7 +7,7 @@ import { CartService } from '../../../core/services/cart.service';
   styleUrls: ['./user-orders.component.css']
 })
 export class UserOrdersComponent implements OnInit {
-  private myOrders: Object[];
+  public myOrders: Object[];
   constructor(private cartServise: CartService) { }
 
   ngOnInit() {

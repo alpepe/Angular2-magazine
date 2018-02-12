@@ -32,6 +32,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.navigate(['/home']);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.productService.getAllProducts(JSON.stringify(params)).subscribe(data => {
         //проверявам дали има поне 1 продукт с зададените филтри, ако не изкарвам съобщение.

@@ -23,7 +23,7 @@ import { AdminGuard } from './core/guards/admin.guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, },
   { path: 'register', component: RegisterFormComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'createProduct', canActivate: [AdminGuard], component: CreateProductComponent },

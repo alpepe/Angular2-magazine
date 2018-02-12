@@ -57,7 +57,7 @@ export class ProductService {
 
     deleteProduct(id): Observable<any> {
         return this.http.delete(
-            getAllProductsUrl + id,
+            getProductById + id,
             {
                 headers: {
                     'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`

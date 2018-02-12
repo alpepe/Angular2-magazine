@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   cartImagePath: string;
 
   constructor(public authService: AuthenticationService) {
-    this.logoImagePath = "../../../../../assets/images/LOGO1.png";
-    this.cartImagePath = "../../../../../assets/images/glossy-black-icon-business.png";
+    this.logoImagePath = "assets/images/LOGO1.png";
+    this.cartImagePath = "assets/images/glossy-black-icon-business.png";
   }
 
   ngOnInit() {

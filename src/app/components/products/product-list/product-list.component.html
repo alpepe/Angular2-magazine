@@ -4,59 +4,59 @@
     <h1 *ngIf="!products">Loading...</h1>
   </div>
   <div class="row">
-    <div class="filters-container col-sm-3">
+    <div class="col-sm-3">
+      <div class="filters-container">
+        <div class="cc-selector row">
+          <h4 class="category-head">Category</h4>
+          <div class="input-block col-lg-4">
+            <input (change)="categoryFilter()" type="radio" name="shoes" id="shoes" value="shoes" [(ngModel)]="category" />
+            <label class="label" for="shoes">Shoes</label>
+          </div>
+          <div class="input-block col-lg-4">
+            <input (change)="categoryFilter()" type="radio" name="clothes" id="clothes" value="clothes" [(ngModel)]="category" />
+            <label class="label" for="clothes">Clothes</label>
+          </div>
+          <div class="input-block col-lg-4">
+            <input (change)="categoryFilter()" type="radio" name="accessories" id="accessories" value="accessories" [(ngModel)]="category"
+            />
+            <label class="label" for="accessories">Accessories</label>
+          </div>
+          <button class="col-sm-12" (click)="categoryClear()">CLEAR</button>
+        </div>
 
-      <div class="cc-selector row">
-        <h4 class="category-head" >Category</h4>
-        <div class="input-block col-lg-4">
-          <input (change)="categoryFilter()" type="radio" name="shoes" id="shoes" value="shoes" [(ngModel)]="category" />
-          <label class="label" for="shoes">Shoes</label>
+        <div class="cc-selector row">
+          <h4 class="color-head">Color</h4>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="black" id="black" value="black" [(ngModel)]="color" />
+            <label class="label" for="black">Black</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="white" id="white" value="white" [(ngModel)]="color" />
+            <label class="label" for="white">White</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="silver" id="silver" value="silver" [(ngModel)]="color" />
+            <label class="label" for="silver">Silver</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="blue" id="blue" value="blue" [(ngModel)]="color" />
+            <label class="label" for="blue">Blue</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="red" id="red" value="red" [(ngModel)]="color" />
+            <label class="label" for="red">Red</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="yellow" id="yellow" value="yellow" [(ngModel)]="color" />
+            <label class="label" for="yellow">Yellow</label>
+          </div>
+          <div class="input-block col-sm-4">
+            <input (change)="colorFilter()" type="radio" name="brown" id="brown" value="brown" [(ngModel)]="color" />
+            <label class="label" for="brown">Brown</label>
+          </div>
+          <button class="col-sm-12" (click)="colorClear()">CLEAR</button>
         </div>
-        <div class="input-block col-lg-4">
-          <input (change)="categoryFilter()"type="radio" name="clothes" id="clothes" value="clothes" [(ngModel)]="category" />
-          <label class="label" for="clothes">Clothes</label>
-        </div>
-        <div class="input-block col-lg-4">
-          <input (change)="categoryFilter()" type="radio" name="accessories" id="accessories" value="accessories" [(ngModel)]="category"
-          />
-          <label class="label" for="accessories">Accessories</label>
-        </div>
-        <button class="col-sm-12" (click)="categoryClear()">CLEAR</button>
       </div>
-
-      <div class="cc-selector row">
-        <h4 class="color-head" >Color</h4>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="black" id="black" value="black" [(ngModel)]="color" />
-          <label class="label" for="black">Black</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="white" id="white" value="white" [(ngModel)]="color" />
-          <label class="label" for="white">White</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="silver" id="silver" value="silver" [(ngModel)]="color" />
-          <label class="label" for="silver">Silver</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="blue" id="blue" value="blue" [(ngModel)]="color" />
-          <label class="label" for="blue">Blue</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="red" id="red" value="red" [(ngModel)]="color" />
-          <label class="label" for="red">Red</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="yellow" id="yellow" value="yellow" [(ngModel)]="color" />
-          <label class="label" for="yellow">Yellow</label>
-        </div>
-        <div class="input-block col-sm-4">
-          <input (change)="colorFilter()" type="radio" name="brown" id="brown" value="brown" [(ngModel)]="color" />
-          <label class="label" for="brown">Brown</label>
-        </div>
-        <button class="col-sm-12" (click)="colorClear()">CLEAR</button>
-      </div>
-
     </div>
     <div *ngIf="!foundProduct" class="product-container col-sm-9">
       <h1>Sorry, we do not have a product with these parameters</h1>

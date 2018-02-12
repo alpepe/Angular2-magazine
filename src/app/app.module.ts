@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutesModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';// добавям го за да работят пътищата след деплойване
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -18,6 +22,8 @@ import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shraed.module';
 import { ProductsModule } from './components/products/products.module';
 import { AdminModule } from './components/admin/admin.module';
+
+
 
 
 
@@ -39,13 +45,18 @@ import { AdminModule } from './components/admin/admin.module';
     AuthModule,
     SharedModule,
     ProductsModule,
-    AdminModule
+    AdminModule,
+    RouterModule
   ],
   providers: [
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }, // добавям го за да работят пътищата след деплойване
+    { provide: APP_BASE_HREF, useValue: '/' }
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    * User registration.
    * User login.
    * View the list of products and their basic information.
+   * Selecting the producers by category and color
 
 * Private Part 
    * View the list of products and their basic information.
@@ -17,7 +18,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
      delete a product of cart (whit Confirmation Dialog Box) 
      or order it.
 
-* Administration Part
+* Administration Part  (user: admin, pass: admin)
   * Can add products with name, photo, color, size, category, more info and auto-generated ID.
   * Can delete a product (whit Confirmation Dialog Box)
   * Can see a list of all orders.

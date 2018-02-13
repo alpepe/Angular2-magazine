@@ -55,6 +55,7 @@ export class CartComponent {
       (console.log(data));
       this.products = [];
       this.cartService.clearCart();
+      this.totalSum = 0;
     });
   }
 

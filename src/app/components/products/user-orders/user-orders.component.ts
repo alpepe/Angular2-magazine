@@ -13,7 +13,6 @@ export class UserOrdersComponent implements OnInit {
   ngOnInit() {
     this.cartServise.orderGet().subscribe(data => {
       this.myOrders = data.filter(d => d.username === localStorage.getItem('username'));
-      console.log(this.myOrders);
     }
     );
   }

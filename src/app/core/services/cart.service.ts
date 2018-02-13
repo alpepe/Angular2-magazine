@@ -45,6 +45,7 @@ export class CartService {
 
     clearCart() {
         this.Products = [];
+        localStorage.setItem('products', '[]');
     }
 
     orderPost(model: Object): Observable<any> {

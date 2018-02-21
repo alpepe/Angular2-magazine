@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   cartImagePath: string;
 
   constructor(public authService: AuthenticationService) {
-    this.logoImagePath = "assets/images/LOGO1.png";
+    this.logoImagePath = "assets/images/sport_sector.png";
     this.cartImagePath = "assets/images/glossy-black-icon-business.png";
   }
 

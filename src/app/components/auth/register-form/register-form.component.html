@@ -1,6 +1,7 @@
 
 <div class="container">
   <h1>Register Form</h1>
+  
   <form (ngSubmit)="register()" #registerForm="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
@@ -9,7 +10,7 @@
       [(ngModel)]="model.username"
       name="username"
       #username="ngModel">
-      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+      <div [hidden]="username.valid || username.pristine" class="text-danger">
         Username is required!
       </div>
     </div>
@@ -19,13 +20,29 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" 
       required
+      minlength="6"
+      maxlength="10"
+      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
       [(ngModel)]="model.password"
       name="password"
       #password="ngModel">
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required!
+      <div [hidden]="password.valid || password.pristine" class="text-danger">
+        Password must be min 6 simbols, at least one letter and one number, (only Latin letters)!
       </div>
     </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" 
+        required
+        validateEqual="model.password"
+        [(ngModel)]="model.confirmPassword"
+        name="confirmPassword"
+        #confirmPassword="ngModel">
+        <div [hidden]="model.password === model.confirmPassword" class="text-danger">
+          Password does not match!
+        </div>
+      </div>
 
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -34,7 +51,7 @@
       [(ngModel)]="model.firstName"
       name="firstName"
       #firstName="ngModel">
-      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+      <div [hidden]="firstName.valid || firstName.pristine" class="text-danger">
         First Name is required!
       </div>
     </div>
@@ -46,17 +63,14 @@
       [(ngModel)]="model.lastName"
       name="lastName"
       #lastName="ngModel">
-      <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+      <div [hidden]="lastName.valid || lastName.pristine" class="text-danger">
         Last Name is required!
       </div>
     </div>
 
     <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-success">Submit</button>    
   </form>
-  <div *ngIf="registerSuccess" class="alert alert-success">
+  <!-- <div *ngIf="registerSuccess" class="alert alert-success">
     Successfull Registered {{registeredUser}}!
-  </div>
-  <div *ngIf="registerFail" class="alert alert-danger">
-      User already exists!
-  </div>
+  </div> -->
 </div>

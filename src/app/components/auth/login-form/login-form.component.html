@@ -8,7 +8,7 @@
         [(ngModel)]="model.username"
         name="username"
         #username="ngModel">
-        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+        <div [hidden]="username.valid || username.pristine" class="text-danger">
           Username is required!
         </div>
       </div>
@@ -20,15 +20,12 @@
         [(ngModel)]="model.password"
         name="password"
         #password="ngModel">
-        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        <div [hidden]="password.valid || password.pristine" class="text-danger">
           Password is required!
         </div>
       </div>
   
       <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Submit</button>    
     </form>
-    <div *ngIf="loginFail" class="alert alert-danger">
-        Failed Login!
-    </div>
   </div>
   

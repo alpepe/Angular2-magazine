@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';// добавям го за да работят пътищата след деплойване
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 // Components
@@ -46,7 +49,9 @@ import { AdminModule } from './components/admin/admin.module';
     SharedModule,
     ProductsModule,
     AdminModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot(), // ToastrModule added
+    BrowserAnimationsModule, // required animations module
   ],
   providers: [
     AuthGuard,

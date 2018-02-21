@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from '../../../core/models/register.model';
 import { AuthenticationService } from '../../../core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -10,13 +12,13 @@ import { AuthenticationService } from '../../../core/services/auth.service';
 export class RegisterFormComponent {
   public model: RegisterModel;
   public registeredUser: string;
-  public registerSuccess: boolean;
-  public registerFail: boolean;
 
   constructor(
-    private authService: AuthenticationService
+    private router: Router,
+    private authService: AuthenticationService,
+    private toastr: ToastrService,
   ) {
-    this.model = new RegisterModel("", "", "", "", "user", []);
+    this.model = new RegisterModel("", "", "", "", "", "user", []);
   }
 
   register(): void {
@@ -26,7 +28,8 @@ export class RegisterFormComponent {
         this.successfulRegister(data);
       },
       err => {
-        this.registerFail = true;
+        // this.registerFail = true;
+        this.toastr.error('User already exists!');
       }
       );
   }
@@ -36,7 +39,9 @@ export class RegisterFormComponent {
   }
 
   successfulRegister(data): void {
-    this.registerSuccess = true;
+    // this.registerSuccess = true;
     this.registeredUser = data['username'];
+    this.toastr.success('Successfull Registered. Now logIn');
+    this.router.navigate(['/login']);
   }
 }

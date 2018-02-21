@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 // Services
 import { AuthenticationService } from '../../core/services/auth.service';
 
@@ -17,7 +18,7 @@ import { AuthenticationService } from '../../core/services/auth.service';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     ...authComponents

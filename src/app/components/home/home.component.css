@@ -12,6 +12,6 @@
         float: right !important;
         right: 120px;
         top: -90px;
-        z-index: 100000000;
+        z-index: 10;
     }
 }

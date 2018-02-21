@@ -24,6 +24,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   * Can delete a product (whit Confirmation Dialog Box)
   * Can see a list of all orders.
   
+  
+* Оther functionalities
+  * I Use toastr for notification
+  
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

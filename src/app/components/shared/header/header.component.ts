@@ -14,12 +14,15 @@ export class HeaderComponent implements OnInit {
   public numberOfProducts: number;
   public totalSum: number;
   private products: any[];
+  private username: string;
+  public showHideMenu: boolean;
 
   constructor(public authService: AuthenticationService, public cartService: CartService) {
     this.logoImagePath = "assets/images/sport_sector.png";
     this.cartImagePath = "assets/images/glossy-black-icon-business.png";
     this.products = this.cartService.getProductOfCart();
     this.totalSum = this.cartService.getTotalSum();
+    this.showHideMenu = true;
   }
 
   ngOnInit() {
@@ -32,6 +35,14 @@ export class HeaderComponent implements OnInit {
         this.numberOfProducts = 0;
       }
     });
+
+    this.authService.username$.subscribe(data => {
+      this.username = localStorage.getItem('username');
+    });
+  }
+
+  showHudeMenu() {
+    this.showHideMenu = !this.showHideMenu;
   }
 
 }

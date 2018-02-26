@@ -51,6 +51,8 @@ export class LoginFormComponent {
     localStorage.setItem('id', data['_id']);
     this.loginFail = false;
     this.toastr.success(`Successfull login ${data.username}`);
+    this.authService.visualUsername(data['username']);
+    //променям subject-а в service към който съм се събскрайбнал в topMenu-то да визуализирам именто на потребителя
     this.router.navigate(['/home']);
   }
 }

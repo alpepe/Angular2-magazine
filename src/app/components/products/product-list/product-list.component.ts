@@ -18,6 +18,8 @@ export class ProductListComponent implements OnInit {
   public category: string;
   public color: string;
   public test = true;
+  public categoryHide = true;
+  public colorHide = true;
 
 
   constructor(
@@ -65,7 +67,9 @@ export class ProductListComponent implements OnInit {
       this.router.navigate(['/home'], { queryParams: this.filterObj });
     }
   }
-
+  categoryShowHide() {
+    this.categoryHide = !this.categoryHide;
+  }
   colorFilter() {
     this.filterObj['color'] = this.color;
     this.router.navigate(['/home'], { queryParams: this.filterObj });
@@ -76,6 +80,9 @@ export class ProductListComponent implements OnInit {
       delete this.filterObj['color'];
       this.router.navigate(['/home'], { queryParams: this.filterObj });
     }
+  }
+  colorShowHide() {
+    this.colorHide = !this.colorHide;
   }
 
 }

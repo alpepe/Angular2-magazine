@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 // Models
 import { RegisterModel } from '../models/register.model';
@@ -16,6 +17,8 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`;
 export class AuthenticationService {
     private currentAuthtoken: string;
     private currentRole: string;
+    private username = new BehaviorSubject<any>({});  //username за topMenu-то
+    public username$ = this.username.asObservable();
 
     constructor(
         private http: HttpClient
@@ -70,6 +73,10 @@ export class AuthenticationService {
             return true;
         }
         return false;
+    }
+
+    visualUsername(name) {
+        this.username.next(name);
     }
 
     get authtoken() {

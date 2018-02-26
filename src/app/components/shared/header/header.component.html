@@ -2,23 +2,47 @@
   <img routerLink="/home" [src]="logoImagePath" class="logo">
   <a *ngIf="authService.isLoggedIn()" routerLink="/yourCart" class="cart">
     <img [src]="cartImagePath" style="width: 60px">
-    <span><b>{{numberOfProducts}} | {{totalSum}} BGN</b></span>
+    <span>
+      <b>{{numberOfProducts}} | {{totalSum}} BGN</b>
+    </span>
   </a>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f7f7f7;">
-    <div *ngIf="!authService.isLoggedIn()">
-      <a [routerLinkActive]="['active']" routerLink="/home" class="navbar-brand">Home</a>
-      <a [routerLinkActive]="['active']" routerLink="/login" class="navbar-brand">Login</a>
-      <a [routerLinkActive]="['active']" routerLink="/register" class="navbar-brand">Register</a>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button (click)="showHudeMenu()" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span>SPORT</span> | SECTOR</a>
+      </div>
+
+      <div id="myNavbar" [ngClass]="{hideMenu:showHideMenu}" class="myNavbar">
+        <div *ngIf="!authService.isLoggedIn()">
+          <ul class="nav navbar-nav">
+            <li><a [routerLinkActive]="['active']" routerLink="/home"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+            <li><a [routerLinkActive]="['active']" routerLink="/login" ><span class="glyphicon glyphicon-user"></span>  Login</a></li>
+            <li><a [routerLinkActive]="['active']" routerLink="/register"><span class="glyphicon glyphicon-log-in"></span>  Register</a></li>
+          </ul>
+        </div>
+        <div *ngIf="authService.isLoggedIn()">
+          <ul class="nav navbar-nav">
+            <li><a [routerLinkActive]="['active']" routerLink="/home"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+            <li><a [routerLinkActive]="['active']" *ngIf="authService.isAdminRole()" routerLink="/createProduct">Add new product</a></li>
+            <li><a [routerLinkActive]="['active']" *ngIf="authService.isAdminRole()" routerLink="/orders">Orders</a></li>
+            <li><a [routerLinkActive]="['active']" routerLink="/myOrders">My Orders</a></li>
+            <li><a [routerLinkActive]="['active']" routerLink="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="username navbar-brand"><span class="glyphicon glyphicon-user"></span>  {{username}}</li>
+          </ul>
+        </div>
+        <!-- <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul> -->
+      </div>
     </div>
-    <div *ngIf="authService.isLoggedIn()">
-      <a [routerLinkActive]="['active']" routerLink="/home" class="navbar-brand">Home</a>
-      <a [routerLinkActive]="['active']" *ngIf="authService.isAdminRole()" routerLink="/createProduct" class="navbar-brand">Add new product</a>
-      <a [routerLinkActive]="['active']" *ngIf="authService.isAdminRole()" routerLink="/orders" class="navbar-brand">Orders</a>
-      <a [routerLinkActive]="['active']" routerLink="/myOrders" class="navbar-brand">My Orders</a>
-      <a [routerLinkActive]="['active']" routerLink="/logout" class="navbar-brand">Logout</a>
-
-    </div>
-
-
   </nav>
 </div>

@@ -49,7 +49,7 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     if (this.model.size !== "Select size of product") {
       this.currectOrder = true;
-      this.cartService.takeProductToCart(this.model);
+      this.cartService.PutProductToCart(this.model);
     } else {
       this.currectOrder = false;
     }

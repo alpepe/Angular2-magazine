@@ -11,8 +11,6 @@ export class CartComponent {
 
   public products: any[];
   private test: any[];
-  private elForDelete: Object;
-  private indexOfElForDel: number;
   private totalSum: number;
   public orderObject: Object;
   private delConfirmInvisible = true;
@@ -27,11 +25,8 @@ export class CartComponent {
     this.delConfirmInvisible = false;
   }
   confirmDelProduct(id, size): void {
-    this.elForDelete = this.products.find(el => el.product._id === id && el.size === size);
-    this.indexOfElForDel = this.products.indexOf(this.elForDelete);
-    this.products.splice(this.indexOfElForDel, 1);
-    localStorage.setItem('products', JSON.stringify(this.products));
-    this.cartService.Products = this.products;
+    this.cartService.deleteProduct(id, size);
+    this.products = this.cartService.getProductOfCart();
     this.calculateTotalSum();
   }
 
@@ -61,9 +56,9 @@ export class CartComponent {
 
 
 
-  /*ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }*/
+  // ngOnInit() {
+  //   this.products = this.cartService.getProductOfCart();
+  // }
 
 
 

@@ -1,6 +1,6 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
-## [https://alpepe.github.io/Sport-Sector/#/home](view site)
+## [View site here](https://alpepe.github.io/Sport-Sector/#/home)
 
 
 ## Online store functionality
